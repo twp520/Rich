@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">商店大师</string>
+    <string name="older_sum">总额：%.2f</string>
+    <string name="older_item_sub_line">零售价：%.2f \t  数量：%d</string>
+    <string name="older_item_sum">小计：%.2f</string>
+
+    <string name="product_item_sub_line">零售价：%.2f</string>
+    <string name="product_item_count">库存：%d</string>
+
+    <string name="product_code">条码</string>
+    <string name="product_title">名称</string>
+    <string name="product_price">零售价</string>
+    <string name="product_count">库存量</string>
+    <string name="product_cost">成本价</string>
+
+    <string name="product_edit">编辑商品</string>
+    <string name="product_list">商品列表</string>
+    <string name="cash_register">收银</string>
+
+    <string name="add_product">添加商品</string>
+
+    <string name="export_data">导出数据</string>
+    <string name="import_data">导入数据</string>
+    <string name="export_success">导出商品数据成功</string>
+    <string name="import_success">导入商品数据成功</string>
+    <string name="export_file_name">商品数据</string>
+    <string name="operating">操作中，请勿退出APP....</string>
+    <string name="product_not_found">商品未录入</string>
+    <string name="hint_search_product">输入商品名称搜索</string>
+
+    <string name="date_filter_today">今天</string>
+    <string name="date_filter_last_week">本周</string>
+    <string name="date_filter_last_month">本月</string>
+    <string name="date_filter_all">全部</string>
+
+    <string name="purchase_list_title">账单(%s)</string>
+    <string name="purchase_amount">交易金额: ￥%s</string>
+    <string name="purchase_number">交易单号: %s</string>
+    <string name="purchase_date">交易时间: %s</string>
+    <string name="purchase_title">营业额: ￥%s  利润: ￥%s</string>
+</resources>

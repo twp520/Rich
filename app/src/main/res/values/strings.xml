@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">ShopSync Pro</string>
+    <string name="older_sum">Total：%.2f</string>
+    <string name="older_item_sub_line">price：%.2f \t  quantity：%d </string>
+    <string name="older_item_sum">Subtotal：%.2f</string>
+
+    <string name="product_item_sub_line">Price：%.2f</string>
+    <string name="product_item_count">Count：%d</string>
+
+    <string name="product_code">Code</string>
+    <string name="product_title">Title</string>
+    <string name="product_price">Price</string>
+    <string name="product_count">Count</string>
+    <string name="product_cost">Cost</string>
+
+    <string name="product_edit">Edit Product</string>
+
+    <string name="product_list">Product List</string>
+    <string name="cash_register">Cash Register</string>
+
+    <string name="add_product">Add Product</string>
+    <string name="export_data">Export Data</string>
+    <string name="import_data">Import Data</string>
+    <string name="export_success">Export data successful</string>
+    <string name="import_success">Import data successful</string>
+    <string name="export_file_name">RichData</string>
+    <string name="operating">operating,don\'t exit app</string>
+    <string name="product_not_found">Cannot found this product</string>
+    <string name="hint_search_product">Search by product name</string>
+
+    <string name="date_filter_today">Today</string>
+    <string name="date_filter_last_week">This Week</string>
+    <string name="date_filter_last_month">This Month</string>
+    <string name="date_filter_all">All</string>
+
+    <string name="purchase_list_title">Purchase History(%s)</string>
+    <string name="purchase_amount">Amount: $%s</string>
+    <string name="purchase_number">Number: %s</string>
+    <string name="purchase_date">Date: %s</string>
+    <string name="purchase_title">Amount: $%s  Profit: $%s</string>
+</resources>
