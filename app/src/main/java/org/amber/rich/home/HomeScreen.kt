@@ -234,7 +234,6 @@ fun HomeScreen(
 }
 
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RichPage(viewModel: HomeViewModel) {
 
@@ -276,8 +275,8 @@ fun RichPage(viewModel: HomeViewModel) {
         LazyColumn(modifier = Modifier.padding(16.dp)) {
             uiState.value.orderList.forEach {
                 item {
-                    ListItem(headlineText = { Text(text = it.product.title) },
-                        supportingText = {
+                    ListItem(headlineContent = { Text(text = it.product.title) },
+                        supportingContent = {
                             Text(
                                 text = context.getString(
                                     R.string.older_item_sub_line,
@@ -398,8 +397,8 @@ fun CreateProductItem(
 ) {
     item?.let {
         ListItem(
-            headlineText = { Text(text = item.title) },
-            supportingText = {
+            headlineContent = { Text(text = item.title) },
+            supportingContent = {
                 Text(
                     text = context.getString(
                         R.string.product_item_sub_line,
@@ -418,7 +417,7 @@ fun CreateProductItem(
             modifier = Modifier.clickable {
                 navToCreateProduct.invoke(it.code)
             },
-            overlineText = { Text(text = item.code) })
+            overlineContent = { Text(text = item.code) })
         if (index < itemCount - 1) {
             Divider()
         }
