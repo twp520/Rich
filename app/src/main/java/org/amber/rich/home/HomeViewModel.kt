@@ -96,11 +96,10 @@ class HomeViewModel(app: Application, private val navToCreateProduct: (code: Str
     )
 
     fun cleanOlder() {
-
-        keyCodeHandler.inputCallback.invoke(randomProduct.random())
-        // _olderState.update {
-        //     OrderUiState(mutableListOf())
-        // }
+        // keyCodeHandler.inputCallback.invoke(randomProduct.random())
+        _olderState.update {
+            OrderUiState(mutableListOf())
+        }
     }
 
     fun completeOlder() {
