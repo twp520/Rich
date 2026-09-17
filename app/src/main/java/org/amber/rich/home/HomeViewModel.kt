@@ -65,10 +65,8 @@ class HomeViewModel(app: Application, private val navToCreateProduct: (code: Str
             } else {
                 if (selectedItem.value == 0) {
                     //older
-                    withContext(Dispatchers.Main) {
-                        _olderState.update {
-                            it.updateByProduct(product)
-                        }
+                    _olderState.update { previous ->
+                        previous.updateByProduct(product)
                     }
                 } else {
                     //product list
@@ -103,6 +101,9 @@ class HomeViewModel(app: Application, private val navToCreateProduct: (code: Str
     }
 
     fun completeOlder() {
+        if (olderState.value.orderList.isEmpty()) {
+            return
+        }
         //清空页面数据，生成订单数据，更新产品库存
         viewModelScope.launch(Dispatchers.IO) {
             //更新库存
@@ -121,7 +122,7 @@ class HomeViewModel(app: Application, private val navToCreateProduct: (code: Str
         saveUri ?: return
         viewModelScope.launch {
             _loadingState.update { true }
-            withContext(Dispatchers.IO) {
+            val success = withContext(Dispatchers.IO) {
                 productRepository.saveProductToDevices(
                     context.applicationContext.contentResolver,
                     saveUri
@@ -129,9 +130,10 @@ class HomeViewModel(app: Application, private val navToCreateProduct: (code: Str
             }
             delay(1000)
             _loadingState.update { false }
+            val txt = if (success) R.string.export_success else R.string.export_failure
             Toast.makeText(
                 context,
-                getApplication<Application>().getString(R.string.export_success),
+                getApplication<Application>().getString(txt),
                 Toast.LENGTH_SHORT
             ).show()
         }
@@ -143,7 +145,7 @@ class HomeViewModel(app: Application, private val navToCreateProduct: (code: Str
         _loadingState.update { true }
         val contentResolver = context.applicationContext.contentResolver
         viewModelScope.launch {
-            withContext(Dispatchers.IO) {
+            val success = withContext(Dispatchers.IO) {
                 productRepository.loadExistProductFile(
                     contentResolver,
                     fileUri
@@ -151,9 +153,10 @@ class HomeViewModel(app: Application, private val navToCreateProduct: (code: Str
             }
             delay(1000)
             _loadingState.update { false }
+            val txt = if (success) R.string.import_success else R.string.import_failure
             Toast.makeText(
                 context,
-                getApplication<Application>().getString(R.string.import_success),
+                getApplication<Application>().getString(txt),
                 Toast.LENGTH_SHORT
             ).show()
         }

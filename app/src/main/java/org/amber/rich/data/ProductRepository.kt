@@ -48,7 +48,7 @@ class ProductRepository {
         return dao.queryProductByName(key)
     }
 
-    suspend fun saveProductToDevices(contentResolver: ContentResolver, saveUri: Uri) {
+    suspend fun saveProductToDevices(contentResolver: ContentResolver, saveUri: Uri): Boolean {
         val allProduct = dao.getAllProduct()
         try {
             contentResolver.openFileDescriptor(saveUri, "w")?.use {
@@ -64,21 +64,30 @@ class ProductRepository {
             }
         } catch (e: Exception) {
             e.printStackTrace()
+            return false
         }
+        return true
     }
 
-    suspend fun loadExistProductFile(contentResolver: ContentResolver, fileUri: Uri) {
+    suspend fun loadExistProductFile(contentResolver: ContentResolver, fileUri: Uri): Boolean {
         val productList = mutableListOf<Product>()
-        contentResolver.openInputStream(fileUri)?.use {
-            InputStreamReader(it).forEachLine { lines ->
-                // Log.d("loadExistProductFile", " lines -> $lines")
-                productList.add(Product.fromSavableString(lines))
+        try {
+            contentResolver.openInputStream(fileUri)?.use {
+                InputStreamReader(it).forEachLine { lines ->
+                    // Log.d("loadExistProductFile", " lines -> $lines")
+                    val product = Product.fromSavableString(lines)
+                    productList.add(product)
+                }
             }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return false
         }
         Log.d("loadExistProductFile", "product Size = ${productList.size}")
         if (productList.isNotEmpty()) {
             dao.insertMultipleProduct(productList)
         }
+        return true
     }
 
 

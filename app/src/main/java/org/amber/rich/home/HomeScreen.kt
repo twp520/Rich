@@ -70,6 +70,7 @@ import org.amber.rich.data.CreateFileContract
 import org.amber.rich.data.OpenFileContract
 import org.amber.rich.data.Product
 import org.amber.rich.getString
+import org.amber.rich.logD
 import org.amber.rich.ui.theme.getTheme
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -239,7 +240,6 @@ fun RichPage(viewModel: HomeViewModel) {
 
     val uiState = viewModel.olderState.collectAsState()
     val context = LocalContext.current
-
     Column {
         Card(
             modifier = Modifier

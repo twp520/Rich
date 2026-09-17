@@ -22,7 +22,9 @@
     <string name="export_data">导出数据</string>
     <string name="import_data">导入数据</string>
     <string name="export_success">导出商品数据成功</string>
+    <string name="export_failure">导出商品数据失败</string>
     <string name="import_success">导入商品数据成功</string>
+    <string name="import_failure">导入商品数据失败</string>
     <string name="export_file_name">商品数据</string>
     <string name="operating">操作中，请勿退出APP....</string>
     <string name="product_not_found">商品未录入</string>

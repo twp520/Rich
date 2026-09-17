@@ -22,7 +22,9 @@
     <string name="export_data">Export Data</string>
     <string name="import_data">Import Data</string>
     <string name="export_success">Export data successful</string>
+    <string name="export_failure">Export data failure</string>
     <string name="import_success">Import data successful</string>
+    <string name="import_failure">Import data failure</string>
     <string name="export_file_name">RichData</string>
     <string name="operating">operating,don\'t exit app</string>
     <string name="product_not_found">Cannot found this product</string>

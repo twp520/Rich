@@ -7,7 +7,7 @@ import org.amber.rich.data.Product
  * 2023/5/7
  */
 data class OrderUiState(
-    val orderList: MutableList<OrderItem>,
+    val orderList: List<OrderItem>,
 ) {
     val orderSum: Double
         get() {
@@ -16,16 +16,16 @@ data class OrderUiState(
         }
 
     fun updateByProduct(product: Product): OrderUiState {
-        val newOlderItem = OrderItem(product, 1)
         val indexOfFirst = orderList.indexOfFirst {
             it.getProductCode() == product.code
         }
+        val newOrderList = orderList.toMutableList()
         if (indexOfFirst >= 0) {
             val olderItem = orderList[indexOfFirst]
-            olderItem.count += 1
+            newOrderList[indexOfFirst] = olderItem.copy(count = olderItem.count + 1)
         } else {
-            orderList.add(newOlderItem)
+            newOrderList.add(OrderItem(product, 1))
         }
-        return copy(orderList = mutableListOf<OrderItem>().apply { addAll(orderList) })
+        return copy(orderList = newOrderList.toList())
     }
 }
