@@ -70,6 +70,7 @@ class ProductRepository {
     }
 
     suspend fun loadExistProductFile(contentResolver: ContentResolver, fileUri: Uri): Boolean {
+        Log.d("loadExistProductFile", "process start")
         val productList = mutableListOf<Product>()
         try {
             contentResolver.openInputStream(fileUri)?.use {
@@ -87,6 +88,7 @@ class ProductRepository {
         if (productList.isNotEmpty()) {
             dao.insertMultipleProduct(productList)
         }
+        Log.d("loadExistProductFile", "process end")
         return true
     }
 
